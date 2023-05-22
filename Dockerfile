@@ -20,6 +20,5 @@ RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
 
 ENV USER user
 ENV HOME /home/user
-ENV TARGET_SDK_VERSION 26
 
 USER user

@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  dev:
+    build:
+      context: .
+      args:
+        USER_ID: 46998
+        GROUP_ID: 46998
+    volumes:
+      - .:/home/user/ghost-android
+    working_dir: "/home/user/ghost-android"
