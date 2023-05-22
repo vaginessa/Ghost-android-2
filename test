@@ -14,7 +14,7 @@ get_deps() {
 }
 
 build() {
-    ./gradlew testDebug -PdisablePreDex --console=plain
+    ./gradlew assembleDebug -PdisablePreDex --console=plain
 }
 
 run_tests() {
