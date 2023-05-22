@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Run in:
+#
+# $ docker run --rm -it --volume .:/home/circleci/src circleci/android:api-26-alpha bash
+
+enable_safe_mode() {
+    set -o errexit; set -o pipefail; set -o nounset; set -o xtrace;
+    IFS=$'\n\t'
+}
+
+get_deps() {
+    ./gradlew androidDependencies
+}
+
+build() {
+    ./gradlew testDebug -PdisablePreDex --console=plain
+}
+
+run_tests() {
+    ./gradlew testDebug -PdisablePreDex --console=plain
+}
+
+src_dir=ghost-android
+
+enable_safe_mode
+
+cp -r "$HOME/src" "$HOME/$src_dir"
+
+(cd "$src_dir" && get_deps)
+
+(cd "$src_dir" && build)
+
+(cd "$src_dir" && run_tests)
