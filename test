@@ -2,7 +2,7 @@
 
 # Run in:
 #
-# $ docker run --rm -it --volume .:/home/circleci/src circleci/android:api-26-alpha bash
+# $ docker run --rm -it --volume .:/home/user/ghost-android circleci/android:api-26-alpha bash
 
 enable_safe_mode() {
     set -o errexit; set -o pipefail; set -o nounset; set -o xtrace;
@@ -21,11 +21,10 @@ run_tests() {
     ./gradlew testDebug -PdisablePreDex --console=plain
 }
 
-src_dir=ghost-android
+HOME=/home/$(whoami)
+src_dir="$HOME"/ghost-android
 
 enable_safe_mode
-
-cp -r "$HOME/src" "$HOME/$src_dir"
 
 (cd "$src_dir" && get_deps)
 
