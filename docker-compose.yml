@@ -12,10 +12,6 @@ services:
     networks:
       - NetForTesting
 
-    # Keep container running.
-    stdin_open: true
-    tty: true
-
   ghost2:
     image: ghost:2-alpine
     ports:
