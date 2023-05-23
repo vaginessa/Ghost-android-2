@@ -17,6 +17,7 @@ ARG GROUP_ID
 USER root
 RUN addgroup --gid $GROUP_ID user
 RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
+RUN echo "user ALL=(ALL) NOPASSWD:ALL" | tee --append /etc/sudoers
 
 ENV USER user
 ENV HOME /home/user
