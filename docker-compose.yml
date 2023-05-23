@@ -9,3 +9,16 @@ services:
     volumes:
       - .:/home/user/ghost-android
     working_dir: "/home/user/ghost-android"
+    networks:
+      - NetForTesting
+
+  ghost2:
+    image: ghost:2-alpine
+    ports:
+      - "2368:2368"
+    networks:
+      - NetForTesting
+
+networks:
+   NetForTesting:
+     name: test-net
