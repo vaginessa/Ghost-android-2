@@ -34,7 +34,7 @@ import org.hamcrest.Matchers.`is` as Is
 class GhostApiTest {
 
     companion object {
-        private val BLOG_URL = "http://localhost:2368/"
+        private val BLOG_URL = "http://ghost2:2368/"
         @ClassRule @JvmField val deleteDefaultPostsRule = DeleteDefaultPostsRule(BLOG_URL)
 
         private val httpClient = ProductionHttpClientFactory().create(null)
