@@ -7,6 +7,7 @@ services:
         USER_ID: 46998
         GROUP_ID: 46998
     volumes:
+      - dev-vol:/home/user
       - .:/home/user/ghost-android
     working_dir: "/home/user/ghost-android"
     networks:
@@ -22,3 +23,6 @@ services:
 networks:
    NetForTesting:
      name: test-net
+
+volumes:
+    dev-vol:
