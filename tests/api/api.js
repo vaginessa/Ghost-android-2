@@ -15,7 +15,7 @@ module.exports = {
     }
 }
 
-var baseUrl = 'http://ghost2:2368/ghost/api/v0.1';
+var baseUrl = 'http://localhost:1234/ghost/api/v0.1';
 var token = 'JMsAEmgGSHLRosvDgW2f8qO3xtKQ7w0QB5eInG5PwvhZV8awahR4gajhuPFoP1saSB4ShFUOma2D8rdFzvrnhQAtxuPCOuz1ipUZMxCYyDTlVodtJR7JAkMw6LxvJVs5FLEmxlw5sdwBvM8W96QmHtiBlDACaA9cSnVLZM1oq73lHOjUFI74XSFLHxcJsMZLeR3UfSXP09g8CySl7ExB7XMPAyPbkzy0G6rpBQYNK7GfQ29e4bkqNCoao6AhQLF';
 
 function createTest(name, method, endpoint, params, useJson) {
