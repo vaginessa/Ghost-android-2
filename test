@@ -9,25 +9,4 @@ enable_safe_mode() {
     IFS=$'\n\t'
 }
 
-get_deps() {
-    ./gradlew androidDependencies
-}
-
-build() {
-    ./gradlew assembleDebug -PdisablePreDex --console=plain
-}
-
-run_tests() {
-    ./gradlew testDebug -PdisablePreDex --console=plain
-}
-
-HOME=/home/$(whoami)
-src_dir="$HOME"/ghost-android
-
-enable_safe_mode
-
-(cd "$src_dir" && get_deps)
-
-(cd "$src_dir" && build)
-
-(cd "$src_dir" && run_tests)
+docker compose run --rm dev ./gradlew testDebug --warning-mode all
