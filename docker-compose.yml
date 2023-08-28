@@ -1,0 +1,5 @@
+services:
+  ghost-android-dev:
+    build: .
+    volumes:
+      - .:/home/circleci/src
